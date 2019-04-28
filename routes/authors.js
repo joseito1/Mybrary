@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
   } catch {
     res.redirect('/');
   }
-  // res.send('Show Author' + req.params.id);
+
 });
 
 router.get('/:id/edit', async (req, res) => {
@@ -89,7 +89,7 @@ router.delete('/:id', async (req, res) => {
     try {
         author = await Author.findById(req.params.id);
         await author.remove();
-          res.redirect(`/authors`);  
+          res.redirect('/authors');  
     } catch {
       if (author == null) {
         res.redirect('/');
